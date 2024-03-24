@@ -97,6 +97,7 @@ public class PatientController {
 
     @PutMapping("/{id}") //modificar absolutamente todos los campos y el //@PatchMapping para modificar solo algunos de ellos.
     public ResponseEntity<PatientDTO> update(@Valid @PathVariable ("id") Integer id, @RequestBody PatientDTO dto){
+        dto.setIdPatient(id);
         Patient obj = service.update(convertoToEntity(dto), id);
         return new ResponseEntity<>(converToDTO(obj), HttpStatus.ACCEPTED);
     }
