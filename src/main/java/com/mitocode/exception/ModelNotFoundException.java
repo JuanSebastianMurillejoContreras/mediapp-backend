@@ -9,6 +9,4 @@ public class ModelNotFoundException extends RuntimeException{
         super(message);
     }
 
-    public <ID> ModelNotFoundException(String message, ID id) {
-    }
 }
