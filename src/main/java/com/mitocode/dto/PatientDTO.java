@@ -11,8 +11,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class PatientDTO {
+
     @EqualsAndHashCode.Include
     private Integer idPatient;
+
     @NotNull // No nulo
     @NotEmpty // No vacío
     @Size(min = 3, max = 70, message = "{firstname.size}")
@@ -22,12 +24,16 @@ public class PatientDTO {
     @NotEmpty
     @Size(min = 3, max = 70, message = "{lastname.size}")
     private String lastName;
+
     @Size(min = 8, max = 8)
     private String dni;
+
     private String address;
+
     @Size(min = 9, max = 9)
     @Pattern(regexp = "[0-9]+") // Siempre para expresiones regulares.
     private String phone;
+
     @Email
     private String email;
 

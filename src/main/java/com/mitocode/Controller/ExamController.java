@@ -50,6 +50,7 @@ public class ExamController {
 
     @PutMapping("/{id}")
     public ResponseEntity<ExamDTO> update(@Valid @PathVariable ("id") Integer id, @RequestBody ExamDTO dto){
+        dto.setIdExam(id);
         Exam obj = service.update(convertoToEntity(dto), id);
         return new ResponseEntity<>(converToDTO(obj), HttpStatus.ACCEPTED);
     }

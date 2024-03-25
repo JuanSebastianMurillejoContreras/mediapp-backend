@@ -50,6 +50,7 @@ public class SpecialityController {
 
     @PutMapping("/{id}")
     public ResponseEntity<SpecialtyDTO> update(@Valid @PathVariable ("id") Integer id, @RequestBody SpecialtyDTO dto){
+        dto.setIdSpecialty(id);
         Specialty obj = service.update(convertoToEntity(dto), id);
         return new ResponseEntity<>(converToDTO(obj), HttpStatus.ACCEPTED);
     }

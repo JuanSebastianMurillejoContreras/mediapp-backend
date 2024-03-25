@@ -48,6 +48,7 @@ public class MedicController {
 
     @PutMapping("/{id}")
     public ResponseEntity<MedicDTO> update(@Valid @PathVariable ("id") Integer id, @RequestBody MedicDTO dto) throws Exception {
+        dto.setIdMedic(id);
         Medic obj = service.update(convertoToEntity(dto), id);
         return new ResponseEntity<>(converToDTO(obj), HttpStatus.ACCEPTED);
     }
